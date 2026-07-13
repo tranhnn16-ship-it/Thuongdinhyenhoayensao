@@ -1,0 +1,348 @@
+/* =========================================================
+   THƯỢNG ĐỈNH YẾN HOA — Jar Carousel + Detail Modal
+   (Yến Chưng Sẵn)
+   ========================================================= */
+
+/* ---------- Page hero ---------- */
+.jar-hero{
+  position:relative;
+  padding:calc(7.5rem + 1rem) var(--gutter) clamp(3rem,6vw,4.5rem);
+  background:var(--color-dark);
+  text-align:center;
+  overflow:hidden;
+}
+.jar-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 0%, rgba(209,168,117,.16), transparent 60%);
+  pointer-events:none;
+}
+.jar-hero__inner{ position:relative; z-index:1; max-width:680px; margin-inline:auto; }
+.jar-hero__title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2.1rem,4.4vw,3.1rem);
+  line-height:1.3;
+  padding-block:.1em;
+  color:var(--color-cream-soft);
+  margin-bottom:1.2rem;
+}
+.jar-hero__lead{
+  font-size:1rem;
+  line-height:1.8;
+  color:#c2d8cd;
+  max-width:52ch;
+  margin-inline:auto;
+}
+
+/* ---------- Hero: background photo + overlay (cùng format với .page-hero ở các trang con khác) ---------- */
+.jar-hero__media{ position:absolute; inset:0; z-index:0; }
+.jar-hero__img{ width:100%; height:100%; object-fit:cover; }
+.jar-hero__overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(5,26,16,.55) 0%, rgba(5,26,16,.68) 55%, rgba(5,26,16,.92) 100%);
+}
+
+/* ---------- Carousel section ---------- */
+.jar-carousel{ padding:clamp(3.5rem,6vw,5.5rem) var(--gutter); }
+
+.jar-carousel__viewport{
+  position:relative;
+  max-width:var(--container);
+  margin-inline:auto;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.jar-carousel__track{
+  display:flex;
+  gap:1.4rem;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  padding:.5rem .25rem 1.25rem;
+  flex:1;
+  scrollbar-width:thin;
+  scrollbar-color:var(--color-gold) transparent;
+}
+.jar-carousel__track::-webkit-scrollbar{ height:6px; }
+.jar-carousel__track::-webkit-scrollbar-thumb{ background:var(--color-gold); border-radius:4px; }
+
+.jar-card{
+  scroll-snap-align:start;
+  flex:0 0 auto;
+  width:240px;
+  background:#fff;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(8,42,25,.08);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  display:flex;
+  flex-direction:column;
+}
+.jar-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(8,42,25,.14); }
+
+.jar-card__media{
+  aspect-ratio:4/5;
+  background:var(--color-cream);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.2rem;
+  min-height:0;
+  min-width:0;
+}
+.jar-card__media img{ max-width:100%; max-height:100%; object-fit:contain; }
+
+.jar-card__body{ padding:1.1rem 1.2rem 1.4rem; display:flex; flex-direction:column; gap:.5rem; flex:1; }
+.jar-card__badge{
+  align-self:flex-start;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--color-primary);
+  background:var(--color-primary-soft);
+  padding:.28rem .6rem;
+  border-radius:2px;
+}
+.jar-card__name{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--color-heading);
+  line-height:1.3;
+}
+.jar-card__btn{
+  margin-top:auto;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--color-primary);
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  transition:gap .3s var(--ease);
+}
+.jar-card:hover .jar-card__btn{ gap:.65rem; }
+
+.jar-carousel__nav{
+  flex-shrink:0;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid #d9d0c4;
+  color:var(--color-primary);
+  font-size:1.1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.jar-carousel__nav:hover{ background:var(--color-primary); color:var(--color-cream-soft); border-color:var(--color-primary); }
+
+.jar-carousel__dots{
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:1.5rem;
+}
+.jar-carousel__dots button{
+  width:8px; height:8px;
+  border-radius:50%;
+  background:#d9d0c4;
+  transition:background .3s var(--ease), transform .3s var(--ease);
+}
+.jar-carousel__dots button.is-active{ background:var(--color-primary); transform:scale(1.3); }
+
+/* =========================================================
+   CTA BAND (shared look with product.css)
+   ========================================================= */
+.product-cta-band{
+  position:relative;
+  overflow:hidden;
+  background:var(--color-dark);
+  padding:clamp(3.5rem,7vw,6rem) var(--gutter);
+  text-align:center;
+}
+.product-cta-band__emblem{
+  position:absolute;
+  top:50%; left:50%;
+  width:420px; height:420px;
+  transform:translate(-50%,-50%);
+  opacity:.06;
+  pointer-events:none;
+}
+.product-cta-band__inner{ position:relative; z-index:1; max-width:640px; margin-inline:auto; }
+.product-cta-band__actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+  margin-top:1.8rem;
+}
+
+/* =========================================================
+   DETAIL MODAL
+   ========================================================= */
+.jar-modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+}
+.jar-modal.is-open{ display:block; }
+
+.jar-modal__backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(5,26,16,.72);
+  backdrop-filter:blur(3px);
+  opacity:0;
+  transition:opacity .3s var(--ease);
+}
+.jar-modal.is-open .jar-modal__backdrop{ opacity:1; }
+
+.jar-modal__dialog{
+  position:relative;
+  z-index:1;
+  max-width:960px;
+  width:min(92vw,960px);
+  max-height:88vh;
+  margin:6vh auto;
+  background:var(--color-cream-soft);
+  border-radius:6px;
+  overflow:hidden auto;
+  opacity:0;
+  transform:translateY(24px) scale(.98);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+}
+.jar-modal.is-open .jar-modal__dialog{ opacity:1; transform:translateY(0) scale(1); }
+
+.jar-modal__close{
+  position:sticky;
+  top:1rem;
+  left:calc(100% - 3rem);
+  z-index:2;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:rgba(255,255,255,.85);
+  color:var(--color-ink);
+  font-size:1.4rem;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  float:right;
+  margin:1rem 1rem -2.2rem 0;
+}
+.jar-modal__close:hover{ background:var(--color-primary); color:var(--color-cream-soft); }
+
+.jar-modal__body{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:2.5rem;
+  padding:1rem clamp(1.5rem,4vw,3rem) clamp(2rem,4vw,3rem);
+}
+
+.jar-modal__media{
+  aspect-ratio:4/5;
+  background:var(--color-cream);
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  align-self:start;
+}
+.jar-modal__media img{ max-width:100%; max-height:100%; object-fit:contain; }
+
+.jar-modal__title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(1.5rem,3vw,2rem);
+  color:var(--color-heading);
+  margin-bottom:.9rem;
+}
+.jar-modal__price{
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--color-primary);
+}
+.jar-modal__tiers{
+  font-size:.85rem;
+  color:#8a8074;
+  margin-top:.4rem;
+  margin-bottom:1.4rem;
+  line-height:1.6;
+}
+
+.jar-modal__tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+  border-bottom:1px solid #d9d0c4;
+  margin-bottom:1.4rem;
+}
+.jar-modal__tab{
+  padding:.7rem 1rem;
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#8a8074;
+  border-bottom:2px solid transparent;
+  transition:color .3s var(--ease), border-color .3s var(--ease);
+}
+.jar-modal__tab:hover{ color:var(--color-primary); }
+.jar-modal__tab.is-active{ color:var(--color-primary); border-bottom-color:var(--color-primary); }
+
+.jar-modal__panel{ display:none; }
+.jar-modal__panel.is-active{ display:block; }
+.jar-modal__panel p{ font-size:.95rem; line-height:1.8; color:#4b463c; margin-bottom:1rem; }
+
+.jar-modal__subtitle{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--color-heading);
+  margin:1.2rem 0 .6rem;
+}
+.jar-modal__subtitle:first-child{ margin-top:0; }
+
+.jar-modal__list{ margin-bottom:1rem; }
+.jar-modal__list li{
+  font-size:.95rem;
+  line-height:1.75;
+  color:#4b463c;
+  padding-left:1.3rem;
+  position:relative;
+  margin-bottom:.6rem;
+}
+.jar-modal__list li::before{
+  content:'';
+  position:absolute; left:0; top:.55em;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:var(--color-gold);
+}
+
+body.jar-modal-open{ overflow:hidden; }
+
+/* ---------- Jar card media modifier for square poster images (Bộ Quà Tặng / Yến Tổ) ---------- */
+.jar-card__media--square{ aspect-ratio:1/1; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:720px){
+  .jar-modal__body{ grid-template-columns:1fr; gap:1.5rem; }
+  .jar-modal__media{ aspect-ratio:16/10; }
+  .jar-carousel__nav{ display:none; }
+}
+@media (max-width:480px){
+  .jar-card{ width:200px; }
+}

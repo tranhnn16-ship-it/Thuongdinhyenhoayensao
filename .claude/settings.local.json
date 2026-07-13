@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(NODE_PATH=\"/c/Users/Admin/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\" node *)",
+      "PowerShell(Get-CimInstance *)",
+      "Bash(curl -sf --max-time 2 http://localhost:8571/ -o /dev/null)",
+      "Bash(ffmpeg -y -i 'C:\\\\Users\\\\Admin\\\\Documents\\\\Thượng đình Yến Hoa\\\\ThuongDinhYenHoa-v10-đã duyệt lần 1/Bản sao của Phúc Khai Hoa.png' -vf scale=2400:-1 -c:v libwebp -quality 82 'C:\\\\Users\\\\Admin\\\\Documents\\\\Thượng đình Yến Hoa\\\\ThuongDinhYenHoa-v10-đã duyệt lần 1/assets/images/phuc-khai-hoa-hero.webp')",
+      "Bash(py -c \"import fitz; print\\(fitz.__doc__\\)\")",
+      "Bash(py -m pip show pymupdf)",
+      "Bash(mkdir -p /c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Documents-Th--ng---nh-Y-n-Hoa-ThuongDinhYenHoa-v10----duy-t-l-n-1/f95c3389-5ccf-48c8-9b56-28d3d7f4cacc/scratchpad/nesttest)",
+      "Bash(ffmpeg -y -i 'tổ yến.jpg' -vf crop=801:641:110:0 /c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Documents-Th--ng---nh-Y-n-Hoa-ThuongDinhYenHoa-v10----duy-t-l-n-1/f95c3389-5ccf-48c8-9b56-28d3d7f4cacc/scratchpad/nesttest/crop-center.jpg -loglevel error)",
+      "Bash(ffmpeg -y -i 'tổ yến.jpg' -vf crop=801:641:0:0 /c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Documents-Th--ng---nh-Y-n-Hoa-ThuongDinhYenHoa-v10----duy-t-l-n-1/f95c3389-5ccf-48c8-9b56-28d3d7f4cacc/scratchpad/nesttest/crop-left.jpg -loglevel error)",
+      "Bash(export NODE_PATH=\"/c/Users/Admin/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\")",
+      "Bash(node /c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Documents-Th--ng---nh-Y-n-Hoa-ThuongDinhYenHoa-v10----duy-t-l-n-1/f95c3389-5ccf-48c8-9b56-28d3d7f4cacc/scratchpad/shot_footer.js /c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Documents-Th--ng---nh-Y-n-Hoa-ThuongDinhYenHoa-v10----duy-t-l-n-1/f95c3389-5ccf-48c8-9b56-28d3d7f4cacc/scratchpad)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 2.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-bo-qua-son-thuy.webp)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 3.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-set-son-thuy-yen-to.webp)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 5.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-hop-qua-hoang-kim-cung-dinh.webp)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 6.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-tu-qua-hoang-kim-luc-bao.webp)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 7.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-set-banh-yen-son-thuy.webp)",
+      "Bash(ffmpeg -y -i \"Trung thu/Bản sao của 8.jpg\" -vf \"scale=1600:-1\" -q:v 5 assets/images/trung-thu/trung-thu-set-banh-yen-hoang-kim.webp)",
+      "Bash(export NODE_PATH=/c/Users/Admin/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
