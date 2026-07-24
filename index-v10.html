@@ -753,10 +753,29 @@
 })();
 </script>
 <script>
-/* v10 — Miss Grand (sponsor): masonry marquee auto-scroll. Logic dùng
-   chung nằm ở js/marquee-masonry.js (dùng lại cho cả gallery trang
-   Tài Trợ) — xem file đó để biết chi tiết thuật toán. */
-initMarqueeMasonry(document.querySelector('.sponsor__gallery'));
+/* v10 — Miss Grand (sponsor): layout masonry 2 hàng, tắt tự động lướt,
+   người xem tự kéo/vuốt ngang. */
+(function(){
+  var container = document.querySelector('.sponsor__gallery');
+  if (!container) return;
+  initMarqueeMasonry(container);
+  function applyManualScroll(){
+    var track = container.querySelector('.mg-track');
+    if (!track){ setTimeout(applyManualScroll, 50); return; }
+    track.style.setProperty('animation', 'none', 'important');
+    track.style.setProperty('transform', 'translateX(0)', 'important');
+    track.style.setProperty('will-change', 'auto', 'important');
+    container.style.setProperty('overflow-x', 'auto', 'important');
+    container.style.setProperty('overflow-y', 'hidden', 'important');
+    container.style.setProperty('mask-image', 'none', 'important');
+    container.style.setProperty('-webkit-mask-image', 'none', 'important');
+    container.style.cursor = 'grab';
+    container.addEventListener('mousedown', function(){ container.style.cursor = 'grabbing'; });
+    container.addEventListener('mouseup', function(){ container.style.cursor = 'grab'; });
+    container.addEventListener('mouseleave', function(){ container.style.cursor = 'grab'; });
+  }
+  applyManualScroll();
+})();
 
 /* v9 — Community: hero + thumbnails (chỉ community, không apply cho sponsor) */
 (function(){
