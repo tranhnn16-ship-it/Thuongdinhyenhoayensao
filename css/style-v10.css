@@ -8300,7 +8300,8 @@ html body footer.site-footer.site-footer.site-footer a:hover{
    chữ (tiêu đề/đoạn văn) cùng section — nhất là ở mobile.
    Bỏ padding thừa đó để mép ảnh thẳng hàng với mép chữ.
    ======================================================== */
-#miss-grand .slideshow-wrap{
+#miss-grand .slideshow-wrap,
+#showroom .slideshow-wrap{
   padding:0 !important;
 }
 
